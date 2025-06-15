@@ -1,0 +1,173 @@
+"use client";
+import React from "react";
+
+function MainComponent() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  const apps = [
+    {
+      title: "Story Book",
+      path: "/story-book",
+      icon: "fa-book-open",
+      color: "bg-[#FF9F43]",
+      description: "Interactive stories with text-to-speech",
+    },
+    {
+      title: "TicTacToe",
+      path: "/tictactoe",
+      icon: "fa-gamepad",
+      color: "bg-[#FF6B6B]",
+      description: "Play the classic game of X's and O's",
+    },
+    {
+      title: "Calculator",
+      path: "/calculator",
+      icon: "fa-calculator",
+      color: "bg-[#4ECDC4]",
+      description: "Perform quick calculations",
+    },
+    {
+      title: "Color Guess",
+      path: "/color-guess",
+      icon: "fa-palette",
+      color: "bg-[#45B7D1]",
+      description: "Test your RGB color knowledge",
+    },
+    {
+      title: "Memory Game",
+      path: "/memory-game",
+      icon: "fa-brain",
+      color: "bg-[#9B59B6]",
+      description: "Test your memory by matching pairs",
+    },
+    {
+      title: "Snake",
+      path: "/snake",
+      icon: "fa-snake",
+      color: "bg-[#6C5CE7]",
+      description: "Classic snake game with arrow controls",
+    },
+    {
+      title: "Word Scramble",
+      path: "/word-scramble",
+      icon: "fa-font",
+      color: "bg-[#F39C12]",
+      description: "Unscramble words to test your vocabulary",
+    },
+    {
+      title: "Rock Paper Scissors",
+      path: "/rock-paper-scissors",
+      icon: "fa-hand-rock",
+      color: "bg-[#E67E22]",
+      description: "Play the classic hand game against AI",
+    },
+    {
+      title: "Typing Test",
+      path: "/typing-test",
+      icon: "fa-keyboard",
+      color: "bg-[#2ECC71]",
+      description: "Test your typing speed and accuracy",
+    },
+    {
+      title: "Fast Clicker",
+      path: "/fast-clicker",
+      icon: "fa-mouse-pointer",
+      color: "bg-[#D35400]",
+      description: "Test your clicking speed",
+    },
+    {
+      title: "Password Generator",
+      path: "/password-generator",
+      icon: "fa-key",
+      color: "bg-[#E74C3C]",
+      description: "Generate secure passwords",
+    },
+    {
+      title: "Quiz Game",
+      path: "/quiz-game",
+      icon: "fa-question-circle",
+      color: "bg-[#9C27B0]",
+      description: "Test your knowledge with trivia questions",
+    },
+    {
+      title: "Flag Game",
+      path: "/guess-flag",
+      icon: "fa-flag",
+      color: "bg-[#3498DB]",
+      description: "Test your knowledge of country flags",
+    },
+    {
+      title: "QR Code Generator",
+      path: "/qr-code",
+      icon: "fa-qrcode",
+      color: "bg-[#2ECC71]",
+      description: "Generate and customize QR codes",
+    },
+    {
+      title: "Google Translate",
+      path: "/translate",
+      icon: "fa-language",
+      color: "bg-[#9B59B6]",
+      description: "Translate text between languages",
+      integration: "GOOGLE_TRANSLATE",
+    },
+    {
+      title: "Celebrity Guess",
+      path: "/celebrity-guess",
+      icon: "fa-star",
+      color: "bg-[#FF4757]",
+      description: "Guess the celebrity from AI generated images",
+    },
+  ];
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 1000);
+  }, []);
+
+  return showSplash ? (
+    <div className="min-h-screen bg-gradient-to-br from-[#1A1A1A] to-[#2D2D2D] flex items-center justify-center">
+      <h1 className="text-6xl md:text-8xl font-roboto text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] font-bold tracking-tighter animate-fade-in">
+        YEKOO
+      </h1>
+    </div>
+  ) : (
+    <div className="min-h-screen bg-gradient-to-br from-[#1A1A1A] to-[#2D2D2D] p-8 md:p-12">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="bg-red-600 text-white text-center py-2 mb-4 rounded">
+          WARNING: DO NOT CLICK CREATE
+        </div>
+        <h1 className="text-6xl md:text-8xl font-roboto text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-center mb-2 font-bold tracking-tighter transform hover:scale-105 transition-all duration-500 shadow-2xl">
+          YEKOO
+        </h1>
+        <p className="text-gray-400 text-center mb-12 font-roboto">
+          Created by Nirdesh Acharya
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-12">
+          {apps.map((app) => (
+            <a
+              key={app.title}
+              href={app.path}
+              className="transform hover:scale-105 transition-transform duration-300"
+            >
+              <div className={`${app.color} rounded-xl p-8 h-full shadow-lg`}>
+                <div className="flex flex-col items-center text-white space-y-4">
+                  <i className={`fas ${app.icon} text-4xl md:text-3xl`}></i>
+                  <h2 className="text-2xl md:text-xl font-roboto font-bold">
+                    {app.title}
+                  </h2>
+                  <p className="text-center text-lg md:text-base font-roboto">
+                    {app.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default MainComponent;
